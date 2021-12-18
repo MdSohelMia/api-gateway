@@ -1,0 +1,1481 @@
+{
+	"info": {
+		"_postman_id": "7eef1f9e-d8cc-4270-9c48-09d1f9b56ad8",
+		"name": "API Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Kong Admin API",
+			"item": [
+				{
+					"name": "Status Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/status",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Endpoints",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/endpoints",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"endpoints"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Upstreams",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/upstreams",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"upstreams"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "# Kong Admin API"
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "Nginx Web Server",
+					"item": [
+						{
+							"name": "CREATE Service",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "nginx-web-server",
+											"type": "text"
+										},
+										{
+											"key": "host",
+											"value": "172.18.0.2",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/nginx-web-server",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"nginx-web-server"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Service",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/nginx-web-server",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"nginx-web-server"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE Route",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "nginx-service",
+											"type": "text"
+										},
+										{
+											"key": "methods",
+											"value": "GET",
+											"type": "text"
+										},
+										{
+											"key": "paths",
+											"value": "/nginx",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/nginx-web-server/routes",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"nginx-web-server",
+										"routes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Route",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8000/nginx",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8000",
+									"path": [
+										"nginx"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Route",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/nginx-web-server/routes/nginx-service",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"nginx-web-server",
+										"routes",
+										"nginx-service"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Apache Server",
+					"item": [
+						{
+							"name": "CREATE Service",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "apache-server",
+											"type": "text"
+										},
+										{
+											"key": "host",
+											"value": "172.18.0.5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/apache-server",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"apache-server"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Service",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/apache-server",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"apache-server"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE Route",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "apache-service",
+											"type": "text"
+										},
+										{
+											"key": "methods",
+											"value": "GET",
+											"type": "text"
+										},
+										{
+											"key": "paths",
+											"value": "/apache",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/apache-server/routes",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"apache-server",
+										"routes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Route",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8000/apache",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8000",
+									"path": [
+										"apache"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Route",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/apache-server/routes/apache",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"apache-server",
+										"routes",
+										"apache"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Application Server A",
+					"item": [
+						{
+							"name": "CREATE Service",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "application-server-a",
+											"type": "text"
+										},
+										{
+											"key": "host",
+											"value": "172.18.0.4",
+											"type": "text"
+										},
+										{
+											"key": "port",
+											"value": "8000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/application-server-a",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"application-server-a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Service",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/application-server-a",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"application-server-a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE Route",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "app-service-a",
+											"type": "text"
+										},
+										{
+											"key": "methods",
+											"value": "GET",
+											"type": "text"
+										},
+										{
+											"key": "paths",
+											"value": "/app-a",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/application-server-a/routes",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"application-server-a",
+										"routes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Route",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8000/app-a",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8000",
+									"path": [
+										"app-a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Route",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/application-server-a/routes/base-route",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"application-server-a",
+										"routes",
+										"base-route"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Application Server B",
+					"item": [
+						{
+							"name": "CREATE Service",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "application-server-b",
+											"type": "text"
+										},
+										{
+											"key": "host",
+											"value": "172.18.0.3",
+											"type": "text"
+										},
+										{
+											"key": "port",
+											"value": "8001",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/application-server-b",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"application-server-b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Service",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/application-server-b",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"application-server-b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE Route",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "app-service-b",
+											"type": "text"
+										},
+										{
+											"key": "methods",
+											"value": "GET",
+											"type": "text"
+										},
+										{
+											"key": "paths",
+											"value": "/app-b",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/application-server-b/routes",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"application-server-b",
+										"routes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Route",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8000/app-b",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8000",
+									"path": [
+										"app-b"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Route",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/application-server-b/routes/app-b",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"application-server-b",
+										"routes",
+										"app-b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET Services",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/services",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/routes",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"routes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Routes in Service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/services/placeholder-service/routes",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"services",
+								"placeholder-service",
+								"routes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plugins",
+			"item": [
+				{
+					"name": "GET Plugins",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/plugins",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Plugins on a Service",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/services/placeholder-service/plugins",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"services",
+								"placeholder-service",
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Plugins on a Route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/routes/users-route/plugins",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"routes",
+								"users-route",
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Global Basic Auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "basic-auth",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.99.100:8001/plugins",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nginx - ACL Plugin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "acl",
+									"type": "text"
+								},
+								{
+									"key": "config.allow",
+									"value": "user-group",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.99.100:8001/services/nginx-web-server/plugins",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"services",
+								"nginx-web-server",
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apache - ACL Plugin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "acl",
+									"type": "text"
+								},
+								{
+									"key": "config.allow",
+									"value": "user-group",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.99.100:8001/services/apache-server/plugins",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"services",
+								"apache-server",
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "App Server A - ACL Plugin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "acl",
+									"type": "text"
+								},
+								{
+									"key": "config.allow",
+									"value": "premium-user-group",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.99.100:8001/services/application-server-a/plugins",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"services",
+								"application-server-a",
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "App Server B - ACL Plugin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "acl",
+									"type": "text"
+								},
+								{
+									"key": "config.allow",
+									"value": "premium-user-group",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.99.100:8001/services/application-server-b/plugins",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"services",
+								"application-server-b",
+								"plugins"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consumers",
+			"item": [
+				{
+					"name": "GET Consumers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/consumers",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"consumers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE Consumer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "adi",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "test-user",
+									"type": "text"
+								},
+								{
+									"key": "custom_id",
+									"value": "hi@adisakshya.codes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.99.100:8001/consumers",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"consumers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SET Basic Auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "adi",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.99.100:8001/consumers/adi/basic-auth",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"consumers",
+								"adi",
+								"basic-auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ACL Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8001/consumers/adi/acls",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"consumers",
+								"adi",
+								"acls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD to ACL Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "group",
+									"value": "user-group",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://192.168.99.100:8001/consumers/madi/acls",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8001",
+							"path": [
+								"consumers",
+								"madi",
+								"acls"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services with Auth",
+			"item": [
+				{
+					"name": "Nginx Server",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass2",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "madi",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8000/nginx",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8000",
+							"path": [
+								"nginx"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Apache Server",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "adi",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8000/apache",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8000",
+							"path": [
+								"apache"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "App Service A",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass2",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "madi",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8000/app-a",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8000",
+							"path": [
+								"app-a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "App Service B",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "adi",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8000/app-b",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8000",
+							"path": [
+								"app-b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
