@@ -17,6 +17,14 @@ services:
     restart: on-failure
     networks:
       - kong-net
+  
+  # HTTPBin
+  httpbin:
+    image: kennethreitz/httpbin
+    container_name: httpbin
+    restart: on-failure
+    networks:
+      - kong-net
 
   # Application Service A
   app_service_a:
