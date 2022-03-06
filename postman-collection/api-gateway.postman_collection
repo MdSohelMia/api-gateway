@@ -117,7 +117,7 @@
 										},
 										{
 											"key": "host",
-											"value": "172.18.0.2",
+											"value": "172.18.0.3",
 											"type": "text"
 										}
 									]
@@ -271,6 +271,221 @@
 										"nginx-web-server",
 										"routes",
 										"nginx-service"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "HTTPBin",
+					"item": [
+						{
+							"name": "CREATE Service",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "httpbin-service",
+											"type": "text"
+										},
+										{
+											"key": "host",
+											"value": "172.18.0.6",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Service",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/httpbin-service",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"httpbin-service"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Service",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/httpbin-service",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"httpbin-service"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CREATE a Route",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"httpbin\",\r\n    \"methods\": [\"GET\", \"POST\", \"DELETE\"],\r\n    \"paths\": [\"/httpbin\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/httpbin-service/routes",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"httpbin-service",
+										"routes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE a Route",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8001/services/httpbin-service/routes/httpbin",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8001",
+									"path": [
+										"services",
+										"httpbin-service",
+										"routes",
+										"httpbin"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Route",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8000/httpbin/get",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8000",
+									"path": [
+										"httpbin",
+										"get"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST Route",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8000/httpbin/post",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8000",
+									"path": [
+										"httpbin",
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Route",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://192.168.99.100:8000/httpbin/delete",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"99",
+										"100"
+									],
+									"port": "8000",
+									"path": [
+										"httpbin",
+										"delete"
 									]
 								}
 							},
@@ -475,7 +690,7 @@
 										},
 										{
 											"key": "host",
-											"value": "172.18.0.4",
+											"value": "172.18.0.9",
 											"type": "text"
 										},
 										{
@@ -659,7 +874,7 @@
 										},
 										{
 											"key": "host",
-											"value": "172.18.0.3",
+											"value": "172.18.0.8",
 											"type": "text"
 										},
 										{
@@ -1470,6 +1685,44 @@
 							"port": "8000",
 							"path": [
 								"app-b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HTTPBin",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "pass",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "adi",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://192.168.99.100:8000/httpbin/get",
+							"protocol": "http",
+							"host": [
+								"192",
+								"168",
+								"99",
+								"100"
+							],
+							"port": "8000",
+							"path": [
+								"httpbin",
+								"get"
 							]
 						}
 					},
